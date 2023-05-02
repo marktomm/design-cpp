@@ -24,3 +24,4 @@ bench = dependency('benchmark', required: false)
 thread = dependency('threads')
 
 subdir('bridge')
+subdir('alt_bridge')
