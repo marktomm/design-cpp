@@ -12,12 +12,14 @@ class ConcreteElementB;
 
 class Visitor {
 public:
+    virtual ~Visitor() = default;
     virtual void visitConcreteElementA(ConcreteElementA* element) = 0;
     virtual void visitConcreteElementB(ConcreteElementB* element) = 0;
 };
 
 class Element {
 public:
+    virtual ~Element() = default;
     virtual void accept(Visitor* visitor) = 0;
 };
 
@@ -58,6 +60,7 @@ public:
 
 class CoupledElement {
 public:
+    virtual ~CoupledElement() = default;
     virtual void operation() = 0;
 };
 
@@ -72,6 +75,14 @@ public:
 class ConcreteCoupledElementB: public CoupledElement {
 public:
     void operation() override {
+        [[maybe_unused]] int x = 1;
+        escape(&x);
+    }
+};
+
+class CoupledElementTrivialStandard {
+public:
+    void operation() {
         [[maybe_unused]] int x = 1;
         escape(&x);
     }
