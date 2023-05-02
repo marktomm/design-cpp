@@ -25,3 +25,4 @@ thread = dependency('threads')
 
 subdir('bridge')
 subdir('alt_bridge')
+subdir('prototype')
