@@ -209,13 +209,14 @@ cat << EOF
 #include <benchmark/benchmark.h>
 #include "lib.h"
 
+using namespace ${ARG1};
+
 struct SomeType {};
 
 // GEN_PROTO_BEGIN
 // GEN_PROTO_END
 
 static void ${ARG1}_bench(benchmark::State& state) {
-    using namespace ${ARG1};
     // Perform setup here
     using Ports = std::vector<SomeType>;
     Ports ports;
