@@ -83,6 +83,7 @@ static void BM_A1_BridgeObjectStack(benchmark::State& state) {
     for (auto _ : state) {
         ConcreteImplementationA implA;
         RefinedAbstraction abstraction(&implA);
+        benchmark::DoNotOptimize(abstraction);
     }
 }
 
@@ -191,6 +192,7 @@ static void BM_A4_BridgeCopy(benchmark::State& state) {
     RefinedAbstraction abstraction(&implA);
     for (auto _ : state) {
         RefinedAbstraction copiedAbstraction = abstraction;
+        benchmark::DoNotOptimize(copiedAbstraction);
     }
 }
 
@@ -200,12 +202,14 @@ static void BM_A5_BridgeOperation(benchmark::State& state) {
     for (auto _ : state) {
         abstraction.operation();
     }
+    benchmark::DoNotOptimize(abstraction);
 }
 
 // Benchmarks for the Tightly Coupled type
 static void BM_E1_TightlyCoupledObjectStack(benchmark::State& state) {
     for (auto _ : state) {
         TightlyCoupledType type(TightlyCoupledType::ImplementationType::TypeA);
+        benchmark::DoNotOptimize(type);
     }
 }
 
@@ -255,6 +259,7 @@ static void BM_E2_TightlyCoupledObjectHeap(benchmark::State& state) {
     for (auto _ : state) {
         auto* type = new TightlyCoupledType(
             TightlyCoupledType::ImplementationType::TypeA);
+        benchmark::DoNotOptimize(type);
         delete type;
     }
 }
@@ -305,7 +310,8 @@ static void BM_E3_TightlyCoupledDtorHeapPauseResume(benchmark::State& state) {
 static void BM_E4_TightlyCoupledCopy(benchmark::State& state) {
     TightlyCoupledType type(TightlyCoupledType::ImplementationType::TypeA);
     for (auto _ : state) {
-        [[maybe_unused]] TightlyCoupledType copiedType = type;
+        TightlyCoupledType copiedType = type;
+        benchmark::DoNotOptimize(copiedType);
     }
 }
 
@@ -314,6 +320,7 @@ static void BM_E5_TightlyCoupledOperation(benchmark::State& state) {
     for (auto _ : state) {
         type.operation();
     }
+    benchmark::DoNotOptimize(type);
 }
 
 // GEN_BENCHMARK_BEGIN

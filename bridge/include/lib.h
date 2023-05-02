@@ -3,6 +3,8 @@
 
 #include <cstdint>
 
+static void escape(void* p) { asm volatile("" : : "g"(p) : "memory"); }
+
 namespace bridge {
 
 class Implementation {
@@ -13,12 +15,18 @@ public:
 
 class ConcreteImplementationA: public Implementation {
 public:
-    void operationImpl() override {}
+    void operationImpl() override {
+        [[maybe_unused]] int x = 1;
+        escape(&x);
+    }
 };
 
 class ConcreteImplementationB: public Implementation {
 public:
-    void operationImpl() override {}
+    void operationImpl() override {
+        [[maybe_unused]] int x = 1;
+        escape(&x);
+    }
 };
 
 class Abstraction {
@@ -62,9 +70,15 @@ public:
     }
 
 private:
-    void operationImplA() {}
+    void operationImplA() {
+        [[maybe_unused]] int x = 1;
+        escape(&x);
+    }
 
-    void operationImplB() {}
+    void operationImplB() {
+        [[maybe_unused]] int x = 1;
+        escape(&x);
+    }
 };
 // GEN_PROTO_BEGIN
 
