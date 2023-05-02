@@ -42,7 +42,7 @@ visitor_exe_sanitize = executable(
     [visitor_main, visitor_src],
     include_directories: [visitor_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ visitor_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'visitor_benchmark_google_opt',
         visitor_benchmark_google_opt_exe,
         suite: 'visitor',
+        timeout: 0,
     )
 
     visitor_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'visitor_benchmark_google_no_opt',
         visitor_benchmark_google_no_opt_exe,
         suite: 'visitor',
+        timeout: 0,
     )
 
     custom_target(

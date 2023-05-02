@@ -42,7 +42,7 @@ prototype_exe_sanitize = executable(
     [prototype_main, prototype_src],
     include_directories: [prototype_inc, common_inc],
     install: true,
-    cpp_args: ['-fsanitize=address'],
+    cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
     # objects: [ prototype_inc_opt_o ],
@@ -82,6 +82,7 @@ if bench.found()
         'prototype_benchmark_google_opt',
         prototype_benchmark_google_opt_exe,
         suite: 'prototype',
+        timeout: 0,
     )
 
     prototype_benchmark_google_no_opt_exe = executable(
@@ -97,6 +98,7 @@ if bench.found()
         'prototype_benchmark_google_no_opt',
         prototype_benchmark_google_no_opt_exe,
         suite: 'prototype',
+        timeout: 0,
     )
 
     custom_target(
