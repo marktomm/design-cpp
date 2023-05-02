@@ -1,0 +1,122 @@
+[
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ibridge/bridge_opt.p -Ibridge -I../bridge -I../bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ bridge/bridge_opt.p/src_main.cpp.o -MF bridge/bridge_opt.p/src_main.cpp.o.d -o bridge/bridge_opt.p/src_main.cpp.o -c ../bridge/src/main.cpp",
+    "file": "../bridge/src/main.cpp",
+    "output": "bridge/bridge_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ibridge/bridge_opt.p -Ibridge -I../bridge -I../bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ bridge/bridge_opt.p/src_lib.cpp.o -MF bridge/bridge_opt.p/src_lib.cpp.o.d -o bridge/bridge_opt.p/src_lib.cpp.o -c ../bridge/src/lib.cpp",
+    "file": "../bridge/src/lib.cpp",
+    "output": "bridge/bridge_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ibridge/bridge_no_opt.p -Ibridge -I../bridge -I../bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ bridge/bridge_no_opt.p/src_main.cpp.o -MF bridge/bridge_no_opt.p/src_main.cpp.o.d -o bridge/bridge_no_opt.p/src_main.cpp.o -c ../bridge/src/main.cpp",
+    "file": "../bridge/src/main.cpp",
+    "output": "bridge/bridge_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ibridge/bridge_no_opt.p -Ibridge -I../bridge -I../bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ bridge/bridge_no_opt.p/src_lib.cpp.o -MF bridge/bridge_no_opt.p/src_lib.cpp.o.d -o bridge/bridge_no_opt.p/src_lib.cpp.o -c ../bridge/src/lib.cpp",
+    "file": "../bridge/src/lib.cpp",
+    "output": "bridge/bridge_no_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ibridge/bridge_opt_sanitize.p -Ibridge -I../bridge -I../bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ bridge/bridge_opt_sanitize.p/src_main.cpp.o -MF bridge/bridge_opt_sanitize.p/src_main.cpp.o.d -o bridge/bridge_opt_sanitize.p/src_main.cpp.o -c ../bridge/src/main.cpp",
+    "file": "../bridge/src/main.cpp",
+    "output": "bridge/bridge_opt_sanitize.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ibridge/bridge_opt_sanitize.p -Ibridge -I../bridge -I../bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ bridge/bridge_opt_sanitize.p/src_lib.cpp.o -MF bridge/bridge_opt_sanitize.p/src_lib.cpp.o.d -o bridge/bridge_opt_sanitize.p/src_lib.cpp.o -c ../bridge/src/lib.cpp",
+    "file": "../bridge/src/lib.cpp",
+    "output": "bridge/bridge_opt_sanitize.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ibridge/bridge_no_opt_sanitize.p -Ibridge -I../bridge -I../bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ bridge/bridge_no_opt_sanitize.p/src_main.cpp.o -MF bridge/bridge_no_opt_sanitize.p/src_main.cpp.o.d -o bridge/bridge_no_opt_sanitize.p/src_main.cpp.o -c ../bridge/src/main.cpp",
+    "file": "../bridge/src/main.cpp",
+    "output": "bridge/bridge_no_opt_sanitize.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ibridge/bridge_no_opt_sanitize.p -Ibridge -I../bridge -I../bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ bridge/bridge_no_opt_sanitize.p/src_lib.cpp.o -MF bridge/bridge_no_opt_sanitize.p/src_lib.cpp.o.d -o bridge/bridge_no_opt_sanitize.p/src_lib.cpp.o -c ../bridge/src/lib.cpp",
+    "file": "../bridge/src/lib.cpp",
+    "output": "bridge/bridge_no_opt_sanitize.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ibridge/bridge_benchmark_google_opt.p -Ibridge -I../bridge -I../bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ bridge/bridge_benchmark_google_opt.p/bench.cpp.o -MF bridge/bridge_benchmark_google_opt.p/bench.cpp.o.d -o bridge/bridge_benchmark_google_opt.p/bench.cpp.o -c ../bridge/bench.cpp",
+    "file": "../bridge/bench.cpp",
+    "output": "bridge/bridge_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ibridge/bridge_benchmark_google_no_opt.p -Ibridge -I../bridge -I../bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ bridge/bridge_benchmark_google_no_opt.p/bench.cpp.o -MF bridge/bridge_benchmark_google_no_opt.p/bench.cpp.o.d -o bridge/bridge_benchmark_google_no_opt.p/bench.cpp.o -c ../bridge/bench.cpp",
+    "file": "../bridge/bench.cpp",
+    "output": "bridge/bridge_benchmark_google_no_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ialt_bridge/alt_bridge_opt.p -Ialt_bridge -I../alt_bridge -I../alt_bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ alt_bridge/alt_bridge_opt.p/src_main.cpp.o -MF alt_bridge/alt_bridge_opt.p/src_main.cpp.o.d -o alt_bridge/alt_bridge_opt.p/src_main.cpp.o -c ../alt_bridge/src/main.cpp",
+    "file": "../alt_bridge/src/main.cpp",
+    "output": "alt_bridge/alt_bridge_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ialt_bridge/alt_bridge_opt.p -Ialt_bridge -I../alt_bridge -I../alt_bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ alt_bridge/alt_bridge_opt.p/src_lib.cpp.o -MF alt_bridge/alt_bridge_opt.p/src_lib.cpp.o.d -o alt_bridge/alt_bridge_opt.p/src_lib.cpp.o -c ../alt_bridge/src/lib.cpp",
+    "file": "../alt_bridge/src/lib.cpp",
+    "output": "alt_bridge/alt_bridge_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ialt_bridge/alt_bridge_no_opt.p -Ialt_bridge -I../alt_bridge -I../alt_bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ alt_bridge/alt_bridge_no_opt.p/src_main.cpp.o -MF alt_bridge/alt_bridge_no_opt.p/src_main.cpp.o.d -o alt_bridge/alt_bridge_no_opt.p/src_main.cpp.o -c ../alt_bridge/src/main.cpp",
+    "file": "../alt_bridge/src/main.cpp",
+    "output": "alt_bridge/alt_bridge_no_opt.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ialt_bridge/alt_bridge_no_opt.p -Ialt_bridge -I../alt_bridge -I../alt_bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ alt_bridge/alt_bridge_no_opt.p/src_lib.cpp.o -MF alt_bridge/alt_bridge_no_opt.p/src_lib.cpp.o.d -o alt_bridge/alt_bridge_no_opt.p/src_lib.cpp.o -c ../alt_bridge/src/lib.cpp",
+    "file": "../alt_bridge/src/lib.cpp",
+    "output": "alt_bridge/alt_bridge_no_opt.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ialt_bridge/alt_bridge_opt_sanitize.p -Ialt_bridge -I../alt_bridge -I../alt_bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ alt_bridge/alt_bridge_opt_sanitize.p/src_main.cpp.o -MF alt_bridge/alt_bridge_opt_sanitize.p/src_main.cpp.o.d -o alt_bridge/alt_bridge_opt_sanitize.p/src_main.cpp.o -c ../alt_bridge/src/main.cpp",
+    "file": "../alt_bridge/src/main.cpp",
+    "output": "alt_bridge/alt_bridge_opt_sanitize.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ialt_bridge/alt_bridge_opt_sanitize.p -Ialt_bridge -I../alt_bridge -I../alt_bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -fsanitize=address -MD -MQ alt_bridge/alt_bridge_opt_sanitize.p/src_lib.cpp.o -MF alt_bridge/alt_bridge_opt_sanitize.p/src_lib.cpp.o.d -o alt_bridge/alt_bridge_opt_sanitize.p/src_lib.cpp.o -c ../alt_bridge/src/lib.cpp",
+    "file": "../alt_bridge/src/lib.cpp",
+    "output": "alt_bridge/alt_bridge_opt_sanitize.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ialt_bridge/alt_bridge_no_opt_sanitize.p -Ialt_bridge -I../alt_bridge -I../alt_bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ alt_bridge/alt_bridge_no_opt_sanitize.p/src_main.cpp.o -MF alt_bridge/alt_bridge_no_opt_sanitize.p/src_main.cpp.o.d -o alt_bridge/alt_bridge_no_opt_sanitize.p/src_main.cpp.o -c ../alt_bridge/src/main.cpp",
+    "file": "../alt_bridge/src/main.cpp",
+    "output": "alt_bridge/alt_bridge_no_opt_sanitize.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ialt_bridge/alt_bridge_no_opt_sanitize.p -Ialt_bridge -I../alt_bridge -I../alt_bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -fsanitize=address -MD -MQ alt_bridge/alt_bridge_no_opt_sanitize.p/src_lib.cpp.o -MF alt_bridge/alt_bridge_no_opt_sanitize.p/src_lib.cpp.o.d -o alt_bridge/alt_bridge_no_opt_sanitize.p/src_lib.cpp.o -c ../alt_bridge/src/lib.cpp",
+    "file": "../alt_bridge/src/lib.cpp",
+    "output": "alt_bridge/alt_bridge_no_opt_sanitize.p/src_lib.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ialt_bridge/alt_bridge_benchmark_google_opt.p -Ialt_bridge -I../alt_bridge -I../alt_bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -MD -MQ alt_bridge/alt_bridge_benchmark_google_opt.p/bench.cpp.o -MF alt_bridge/alt_bridge_benchmark_google_opt.p/bench.cpp.o.d -o alt_bridge/alt_bridge_benchmark_google_opt.p/bench.cpp.o -c ../alt_bridge/bench.cpp",
+    "file": "../alt_bridge/bench.cpp",
+    "output": "alt_bridge/alt_bridge_benchmark_google_opt.p/bench.cpp.o"
+  },
+  {
+    "directory": "/home/mark/Documents/Development/bachelor_thesis/design-cpp/builddir",
+    "command": "c++ -Ialt_bridge/alt_bridge_benchmark_google_no_opt.p -Ialt_bridge -I../alt_bridge -I../alt_bridge/include -I/usr/local/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wshadow -Wconversion -Wpedantic -pthread -O0 -g -MD -MQ alt_bridge/alt_bridge_benchmark_google_no_opt.p/bench.cpp.o -MF alt_bridge/alt_bridge_benchmark_google_no_opt.p/bench.cpp.o.d -o alt_bridge/alt_bridge_benchmark_google_no_opt.p/bench.cpp.o -c ../alt_bridge/bench.cpp",
+    "file": "../alt_bridge/bench.cpp",
+    "output": "alt_bridge/alt_bridge_benchmark_google_no_opt.p/bench.cpp.o"
+  }
+]
