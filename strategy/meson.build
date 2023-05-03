@@ -16,6 +16,7 @@ strategy_exe = executable(
     include_directories: [strategy_inc, common_inc],
     dependencies: [bench, thread],
     install: true,
+    objects: [common_inc_opt_o],
 )
 
 strategy_exe_no_opt = executable(
@@ -25,56 +26,57 @@ strategy_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
+    objects: [common_inc_opt_o],
 )
 
 strategy_inc_opt_o = strategy_exe.extract_objects(
     strategy_src,
 )
 
+strategy_main_opt_o = strategy_exe.extract_objects(
+    strategy_main,
+)
+
+strategy_inc_o = strategy_inc_opt_o
+
 strategy_inc_no_opt_o = strategy_exe_no_opt.extract_objects(
     strategy_src,
+)
+
+strategy_main_no_opt_o = strategy_exe_no_opt.extract_objects(
+    strategy_main,
 )
 
 asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
 
 strategy_exe_sanitize = executable(
     'strategy_opt_sanitize',
-    [strategy_main, strategy_src],
     include_directories: [strategy_inc, common_inc],
     install: true,
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ strategy_inc_opt_o ],
+    objects: [strategy_main_opt_o, strategy_inc_opt_o, common_inc_opt_o],
 )
 
 strategy_exe_no_opt_sanitize = executable(
     'strategy_no_opt_sanitize',
-    [strategy_main, strategy_src],
     include_directories: [strategy_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ strategy_inc_opt_o ],
+    objects: [strategy_main_no_opt_o, strategy_inc_no_opt_o, common_inc_opt_o],
 )
-
-# executable(
-#     'strategy_simple',
-#     [strategy_simple],
-#     objects: [strategy_inc_opt_o],
-#     include_directories: [strategy_inc, common_inc],
-#     install: true,
-# )
 
 if bench.found()
     strategy_benchmark_test = ['bench.cpp']
 
     strategy_benchmark_google_opt_exe = executable(
         'strategy_benchmark_google_opt',
-        [strategy_benchmark_test, common_src],
-        objects: strategy_inc_opt_o,
-        include_directories: strategy_inc,
+        [strategy_benchmark_test],
+        objects: [strategy_inc_opt_o, common_inc_opt_o],
+        include_directories: [strategy_inc, common_inc],
         dependencies: [bench, thread],
     )
 
@@ -87,9 +89,9 @@ if bench.found()
 
     strategy_benchmark_google_no_opt_exe = executable(
         'strategy_benchmark_google_no_opt',
-        [strategy_benchmark_test, common_src],
-        objects: strategy_inc_no_opt_o,
-        include_directories: strategy_inc,
+        [strategy_benchmark_test],
+        objects: [strategy_inc_no_opt_o, common_inc_opt_o],
+        include_directories: [strategy_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
     )
@@ -122,6 +124,7 @@ gen_asm = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -137,6 +140,7 @@ gen_asm_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -152,6 +156,7 @@ gen_asm_lib = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -167,6 +172,7 @@ gen_asm_lib_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',

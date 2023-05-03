@@ -1,6 +1,6 @@
 # design-cpp
 
-Design patterns related to poly-cpp
+Design patterns related to design-cpp
 
 build requirements: meson, gcc, binutils (objdump), libasan
 

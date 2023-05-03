@@ -10,6 +10,7 @@ public:
 };
 
 // GEN_PROTO_BEGIN
+
 // GEN_PROTO_END
 
 }; // namespace alt_bridge

@@ -1,14 +1,14 @@
 #include <benchmark/benchmark.h>
 #include "lib.h"
 
+using namespace common;
+
 struct SomeType {};
 
 // GEN_PROTO_BEGIN
-
 // GEN_PROTO_END
 
-static void alt_bridge_bench(benchmark::State& state) {
-    using namespace alt_bridge;
+static void common_bench(benchmark::State& state) {
     // Perform setup here
     using Ports = std::vector<SomeType>;
     Ports ports;
@@ -22,11 +22,10 @@ static void alt_bridge_bench(benchmark::State& state) {
 }
 
 // Register the function as a benchmark
-BENCHMARK(alt_bridge_bench);
+BENCHMARK(common_bench);
 
 
 // GEN_BENCHMARK_BEGIN
-
 // GEN_BENCHMARK_END
 
 // Run the benchmark

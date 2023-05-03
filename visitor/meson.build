@@ -16,6 +16,7 @@ visitor_exe = executable(
     include_directories: [visitor_inc, common_inc],
     dependencies: [bench, thread],
     install: true,
+    objects: [common_inc_opt_o],
 )
 
 visitor_exe_no_opt = executable(
@@ -25,56 +26,57 @@ visitor_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
+    objects: [common_inc_opt_o],
 )
 
 visitor_inc_opt_o = visitor_exe.extract_objects(
     visitor_src,
 )
 
+visitor_main_opt_o = visitor_exe.extract_objects(
+    visitor_main,
+)
+
+visitor_inc_o = visitor_inc_opt_o
+
 visitor_inc_no_opt_o = visitor_exe_no_opt.extract_objects(
     visitor_src,
+)
+
+visitor_main_no_opt_o = visitor_exe_no_opt.extract_objects(
+    visitor_main,
 )
 
 asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
 
 visitor_exe_sanitize = executable(
     'visitor_opt_sanitize',
-    [visitor_main, visitor_src],
     include_directories: [visitor_inc, common_inc],
     install: true,
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ visitor_inc_opt_o ],
+    objects: [visitor_main_opt_o, visitor_inc_opt_o, common_inc_opt_o],
 )
 
 visitor_exe_no_opt_sanitize = executable(
     'visitor_no_opt_sanitize',
-    [visitor_main, visitor_src],
     include_directories: [visitor_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ visitor_inc_opt_o ],
+    objects: [visitor_main_no_opt_o, visitor_inc_no_opt_o, common_inc_opt_o],
 )
-
-# executable(
-#     'visitor_simple',
-#     [visitor_simple],
-#     objects: [visitor_inc_opt_o],
-#     include_directories: [visitor_inc, common_inc],
-#     install: true,
-# )
 
 if bench.found()
     visitor_benchmark_test = ['bench.cpp']
 
     visitor_benchmark_google_opt_exe = executable(
         'visitor_benchmark_google_opt',
-        [visitor_benchmark_test, common_src],
-        objects: visitor_inc_opt_o,
-        include_directories: visitor_inc,
+        [visitor_benchmark_test],
+        objects: [visitor_inc_opt_o, common_inc_opt_o],
+        include_directories: [visitor_inc, common_inc],
         dependencies: [bench, thread],
     )
 
@@ -87,9 +89,9 @@ if bench.found()
 
     visitor_benchmark_google_no_opt_exe = executable(
         'visitor_benchmark_google_no_opt',
-        [visitor_benchmark_test, common_src],
-        objects: visitor_inc_no_opt_o,
-        include_directories: visitor_inc,
+        [visitor_benchmark_test],
+        objects: [visitor_inc_no_opt_o, common_inc_opt_o],
+        include_directories: [visitor_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
     )
@@ -122,6 +124,7 @@ gen_asm = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -137,6 +140,7 @@ gen_asm_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -152,6 +156,7 @@ gen_asm_lib = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -167,6 +172,7 @@ gen_asm_lib_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',

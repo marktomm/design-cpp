@@ -16,6 +16,7 @@ alt_bridge_exe = executable(
     include_directories: [alt_bridge_inc, common_inc],
     dependencies: [bench, thread],
     install: true,
+    objects: [common_inc_opt_o],
 )
 
 alt_bridge_exe_no_opt = executable(
@@ -25,56 +26,57 @@ alt_bridge_exe_no_opt = executable(
     dependencies: [bench, thread],
     install: true,
     cpp_args: ['-O0', '-g'],
+    objects: [common_inc_opt_o],
 )
 
 alt_bridge_inc_opt_o = alt_bridge_exe.extract_objects(
     alt_bridge_src,
 )
 
+alt_bridge_main_opt_o = alt_bridge_exe.extract_objects(
+    alt_bridge_main,
+)
+
+alt_bridge_inc_o = alt_bridge_inc_opt_o
+
 alt_bridge_inc_no_opt_o = alt_bridge_exe_no_opt.extract_objects(
     alt_bridge_src,
+)
+
+alt_bridge_main_no_opt_o = alt_bridge_exe_no_opt.extract_objects(
+    alt_bridge_main,
 )
 
 asandep = cpp.find_library('asan', dirs: '/usr/lib/x86_64-linux-gnu')
 
 alt_bridge_exe_sanitize = executable(
     'alt_bridge_opt_sanitize',
-    [alt_bridge_main, alt_bridge_src],
     include_directories: [alt_bridge_inc, common_inc],
     install: true,
     cpp_args: ['-O3', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ alt_bridge_inc_opt_o ],
+    objects: [alt_bridge_main_opt_o, alt_bridge_inc_opt_o, common_inc_opt_o],
 )
 
 alt_bridge_exe_no_opt_sanitize = executable(
     'alt_bridge_no_opt_sanitize',
-    [alt_bridge_main, alt_bridge_src],
     include_directories: [alt_bridge_inc, common_inc],
     install: true,
     cpp_args: ['-O0', '-g', '-fsanitize=address'],
     dependencies: [asandep, bench, thread],
     link_args: ['-Wl,--start-group', '-lasan', '-Wl,--end-group'],
-    # objects: [ alt_bridge_inc_opt_o ],
+    objects: [alt_bridge_main_no_opt_o, alt_bridge_inc_no_opt_o, common_inc_opt_o],
 )
-
-# executable(
-#     'alt_bridge_simple',
-#     [alt_bridge_simple],
-#     objects: [alt_bridge_inc_opt_o],
-#     include_directories: [alt_bridge_inc, common_inc],
-#     install: true,
-# )
 
 if bench.found()
     alt_bridge_benchmark_test = ['bench.cpp']
 
     alt_bridge_benchmark_google_opt_exe = executable(
         'alt_bridge_benchmark_google_opt',
-        [alt_bridge_benchmark_test, common_src],
-        objects: alt_bridge_inc_opt_o,
-        include_directories: alt_bridge_inc,
+        [alt_bridge_benchmark_test],
+        objects: [alt_bridge_inc_opt_o, common_inc_opt_o],
+        include_directories: [alt_bridge_inc, common_inc],
         dependencies: [bench, thread],
     )
 
@@ -87,9 +89,9 @@ if bench.found()
 
     alt_bridge_benchmark_google_no_opt_exe = executable(
         'alt_bridge_benchmark_google_no_opt',
-        [alt_bridge_benchmark_test, common_src],
-        objects: alt_bridge_inc_no_opt_o,
-        include_directories: alt_bridge_inc,
+        [alt_bridge_benchmark_test],
+        objects: [alt_bridge_inc_no_opt_o, common_inc_opt_o],
+        include_directories: [alt_bridge_inc, common_inc],
         dependencies: [bench, thread],
         cpp_args: ['-O0', '-g'],
     )
@@ -122,6 +124,7 @@ gen_asm = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -137,6 +140,7 @@ gen_asm_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -152,6 +156,7 @@ gen_asm_lib = custom_target(
     command: [
         cpp_prog,
         '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
@@ -167,6 +172,7 @@ gen_asm_lib_opt = custom_target(
     command: [
         cpp_prog,
         '-O3', '-I' + meson.current_source_dir() + '/include/',
+        '-I' + meson.current_source_dir() + '/../',
         '-S',
         '-masm=intel',
         '-o', '@OUTPUT@',
