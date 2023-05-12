@@ -11,27 +11,27 @@ static void BM_0001_ManualBatch(benchmark::State& state);
 static void BM_0001_Manual(benchmark::State& state);
 static void BM_00_Noop(benchmark::State& state);
 static void BM_00_X1(benchmark::State& state);
-static void BM_01_PauseResume(benchmark::State& state);
 static void BM_A1_BridgeObjectStack(benchmark::State& state);
 static void BM_A2_BridgeCtorHeapManualBatch(benchmark::State& state);
 static void BM_A2_BridgeCtorHeapManual(benchmark::State& state);
-static void BM_A2_BridgeCtorHeapPauseResume(benchmark::State& state);
 static void BM_A2_BridgeObjectHeap(benchmark::State& state);
 static void BM_A3_BridgeDtorHeapManualBatch(benchmark::State& state);
 static void BM_A3_BridgeDtorHeapManual(benchmark::State& state);
-static void BM_A3_BridgeDtorHeapPauseResume(benchmark::State& state);
 static void BM_A4_BridgeCopy(benchmark::State& state);
 static void BM_A5_BridgeOperation(benchmark::State& state);
 static void BM_E1_TightlyCoupledObjectStack(benchmark::State& state);
 static void BM_E2_TightlyCoupledCtorHeapManualBatch(benchmark::State& state);
 static void BM_E2_TightlyCoupledCtorHeapManual(benchmark::State& state);
-static void BM_E2_TightlyCoupledCtorHeapPauseResume(benchmark::State& state);
 static void BM_E2_TightlyCoupledObjectHeap(benchmark::State& state);
 static void BM_E3_TightlyCoupledDtorHeapManualBatch(benchmark::State& state);
 static void BM_E3_TightlyCoupledDtorHeapManual(benchmark::State& state);
-static void BM_E3_TightlyCoupledDtorHeapPauseResume(benchmark::State& state);
 static void BM_E4_TightlyCoupledCopy(benchmark::State& state);
 static void BM_E5_TightlyCoupledOperation(benchmark::State& state);
+static void BM_X1_PauseResume(benchmark::State& state);
+static void BM_X2_BridgeCtorHeapPauseResume(benchmark::State& state);
+static void BM_X3_BridgeDtorHeapPauseResume(benchmark::State& state);
+static void BM_X4_TightlyCoupledCtorHeapPauseResume(benchmark::State& state);
+static void BM_X5_TightlyCoupledDtorHeapPauseResume(benchmark::State& state);
 // GEN_PROTO_END
 
 static void BM_00_Noop(benchmark::State& state) {
@@ -46,7 +46,7 @@ static void BM_00_X1(benchmark::State& state) {
     }
 }
 
-static void BM_01_PauseResume(benchmark::State& state) {
+static void BM_X1_PauseResume(benchmark::State& state) {
     for (auto _ : state) {
         state.PauseTiming();
         state.ResumeTiming();
@@ -121,7 +121,7 @@ static void BM_A2_BridgeCtorHeapManualBatch(benchmark::State& state) {
     }
 }
 
-static void BM_A2_BridgeCtorHeapPauseResume(benchmark::State& state) {
+static void BM_X2_BridgeCtorHeapPauseResume(benchmark::State& state) {
 
     for (auto _ : state) {
         auto* implA = new ConcreteImplementationA();
@@ -175,7 +175,7 @@ static void BM_A3_BridgeDtorHeapManualBatch(benchmark::State& state) {
     }
 }
 
-static void BM_A3_BridgeDtorHeapPauseResume(benchmark::State& state) {
+static void BM_X3_BridgeDtorHeapPauseResume(benchmark::State& state) {
     for (auto _ : state) {
         state.PauseTiming();
         auto* implA = new ConcreteImplementationA();
@@ -244,7 +244,7 @@ static void BM_E2_TightlyCoupledCtorHeapManualBatch(benchmark::State& state) {
     }
 }
 
-static void BM_E2_TightlyCoupledCtorHeapPauseResume(benchmark::State& state) {
+static void BM_X4_TightlyCoupledCtorHeapPauseResume(benchmark::State& state) {
     for (auto _ : state) {
         auto* type = new TightlyCoupledType(
             TightlyCoupledType::ImplementationType::TypeA);
@@ -296,7 +296,7 @@ static void BM_E3_TightlyCoupledDtorHeapManualBatch(benchmark::State& state) {
     }
 }
 
-static void BM_E3_TightlyCoupledDtorHeapPauseResume(benchmark::State& state) {
+static void BM_X5_TightlyCoupledDtorHeapPauseResume(benchmark::State& state) {
     for (auto _ : state) {
         state.PauseTiming();
         auto* type = new TightlyCoupledType(
@@ -328,27 +328,27 @@ BENCHMARK(BM_0001_Manual)->UseManualTime();
 BENCHMARK(BM_0001_ManualBatch)->UseManualTime();
 BENCHMARK(BM_00_Noop);
 BENCHMARK(BM_00_X1);
-BENCHMARK(BM_01_PauseResume);
 BENCHMARK(BM_A1_BridgeObjectStack);
 BENCHMARK(BM_A2_BridgeCtorHeapManual)->UseManualTime();
 BENCHMARK(BM_A2_BridgeCtorHeapManualBatch)->UseManualTime();
-BENCHMARK(BM_A2_BridgeCtorHeapPauseResume);
 BENCHMARK(BM_A2_BridgeObjectHeap);
 BENCHMARK(BM_A3_BridgeDtorHeapManual)->UseManualTime();
 BENCHMARK(BM_A3_BridgeDtorHeapManualBatch)->UseManualTime();
-BENCHMARK(BM_A3_BridgeDtorHeapPauseResume);
 BENCHMARK(BM_A4_BridgeCopy);
 BENCHMARK(BM_A5_BridgeOperation);
 BENCHMARK(BM_E1_TightlyCoupledObjectStack);
 BENCHMARK(BM_E2_TightlyCoupledCtorHeapManual)->UseManualTime();
 BENCHMARK(BM_E2_TightlyCoupledCtorHeapManualBatch)->UseManualTime();
-BENCHMARK(BM_E2_TightlyCoupledCtorHeapPauseResume);
 BENCHMARK(BM_E2_TightlyCoupledObjectHeap);
 BENCHMARK(BM_E3_TightlyCoupledDtorHeapManual)->UseManualTime();
 BENCHMARK(BM_E3_TightlyCoupledDtorHeapManualBatch)->UseManualTime();
-BENCHMARK(BM_E3_TightlyCoupledDtorHeapPauseResume);
 BENCHMARK(BM_E4_TightlyCoupledCopy);
 BENCHMARK(BM_E5_TightlyCoupledOperation);
+BENCHMARK(BM_X1_PauseResume);
+BENCHMARK(BM_X2_BridgeCtorHeapPauseResume);
+BENCHMARK(BM_X3_BridgeDtorHeapPauseResume);
+BENCHMARK(BM_X4_TightlyCoupledCtorHeapPauseResume);
+BENCHMARK(BM_X5_TightlyCoupledDtorHeapPauseResume);
 // GEN_BENCHMARK_END
 
 // Run the benchmark
