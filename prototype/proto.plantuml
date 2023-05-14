@@ -1,0 +1,22 @@
+@startuml
+
+namespace prototype {
+
+abstract class Prototype {
+  {abstract} +clone() : std::unique_ptr<Prototype>
+}
+
+class ConcretePrototypeA {
+  +clone() : std::unique_ptr<Prototype>
+}
+
+class ConcretePrototypeB {
+  +clone() : std::unique_ptr<Prototype>
+}
+
+Prototype <|-- ConcretePrototypeA
+Prototype <|-- ConcretePrototypeB
+
+}
+
+@enduml

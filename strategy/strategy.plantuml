@@ -1,0 +1,27 @@
+@startuml
+
+abstract class SortingStrategy {
+    +virtual ~SortingStrategy()
+    {abstract} +virtual void Sort(vector<int>&) = 0
+}
+
+class BubbleSortStrategy {
+    +void Sort(vector<int>&) override
+}
+
+class QuickSortStrategy {
+    +void Sort(vector<int>&) override
+}
+
+class Context {
+    -unique_ptr<SortingStrategy> strategy
+    +Context(unique_ptr<SortingStrategy>)
+    +void SetStrategy(unique_ptr<SortingStrategy>)
+    +void SortData(vector<int>&)
+}
+
+SortingStrategy <|-- BubbleSortStrategy: Inheritance
+SortingStrategy <|-- QuickSortStrategy: Inheritance
+Context *-- SortingStrategy: owns
+
+@enduml

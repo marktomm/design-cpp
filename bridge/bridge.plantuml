@@ -1,0 +1,31 @@
+@startuml
+
+abstract class "bridge::Implementation" {
+    + {abstract} operationImpl()
+}
+
+class "bridge::ConcreteImplementationA" {
+    +operationImpl()
+}
+
+class "bridge::ConcreteImplementationB" {
+    +operationImpl()
+}
+
+abstract class "bridge::Abstraction" {
+    + operation()
+    - implementor : Implementation
+}
+
+class "bridge::RefinedAbstraction" {
+    + operation()
+}
+
+"bridge::Implementation" <|-- "bridge::ConcreteImplementationA" : implements
+"bridge::Implementation" <|-- "bridge::ConcreteImplementationB" : implements
+
+"bridge::Abstraction" <|-- "bridge::RefinedAbstraction" : inherits
+
+"bridge::Abstraction" o-- "bridge::Implementation" : uses
+
+@enduml

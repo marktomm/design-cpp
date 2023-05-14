@@ -1,0 +1,17 @@
+@startuml
+
+class "TightlyCoupledType" {
+    - implType : ImplementationType
+    + operation()
+    - operationImplA()
+    - operationImplB()
+}
+
+enum "ImplementationType" {
+    TypeA,
+    TypeB
+}
+
+"TightlyCoupledType" : uses --> "ImplementationType"
+
+@enduml
