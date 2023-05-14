@@ -6,11 +6,16 @@ using namespace std;
 int main() {
     vector<int> data{5, 2, 8, 1, 9, 3};
 
-    Context context(std::make_unique<BubbleSortStrategy>());
+    ContextCout contextCout(std::make_unique<SortingStrategyCout>());
+    contextCout.SortData(data);
+
+    cout << "step 0 \n";
+
+    Context context(make_unique<BubbleSortStrategy>());
+    context.SetStrategy(make_unique<QuickSortStrategy>());
     context.SortData(data);
 
-    context.SetStrategy(std::make_unique<QuickSortStrategy>());
-    context.SortData(data);
+    cout << "step 1 \n";
 
     TightlyCoupledContext context2(SortingAlgorithm::BubbleSort);
     context2.SortData(data);

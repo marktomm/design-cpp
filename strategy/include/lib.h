@@ -5,19 +5,18 @@
 #include <vector>
 
 #include <cstdint>
+#include <iostream>
 
 static void escape(void* p) { asm volatile("" : : "g"(p) : "memory"); }
 
 namespace strategy {
 
-// Strategy interface
 class SortingStrategy {
 public:
     virtual ~SortingStrategy() = default;
     virtual void Sort(std::vector<int>& data) = 0;
 };
 
-// Concrete Strategy 1
 class BubbleSortStrategy: public SortingStrategy {
 public:
     void Sort([[maybe_unused]] std::vector<int>& data) override {
@@ -26,7 +25,6 @@ public:
     }
 };
 
-// Concrete Strategy 2
 class QuickSortStrategy: public SortingStrategy {
 public:
     void Sort([[maybe_unused]] std::vector<int>& data) override {
@@ -35,7 +33,49 @@ public:
     }
 };
 
-// Context
+class SortingStrategyCout: public SortingStrategy {
+public:
+    SortingStrategyCout() {
+        std::cout << "SortingStrategyCout default constructor called.\n";
+    }
+
+    ~SortingStrategyCout() override {
+        std::cout << "SortingStrategyCout destructor called.\n";
+    }
+
+    SortingStrategyCout(const SortingStrategyCout& other)
+        : SortingStrategy(other) {
+        std::cout << "SortingStrategyCout copy constructor called.\n";
+    }
+
+    SortingStrategyCout& operator=(const SortingStrategyCout& other) {
+        std::cout << "SortingStrategyCout copy assignment operator called.\n";
+        if (this != &other) {
+            SortingStrategy::operator=(other);
+        }
+        return *this;
+    }
+
+    SortingStrategyCout(SortingStrategyCout&& other) noexcept
+        : SortingStrategy(std::move(other)) {
+        std::cout << "SortingStrategyCout move constructor called.\n";
+    }
+
+    SortingStrategyCout& operator=(SortingStrategyCout&& other) noexcept {
+        std::cout << "SortingStrategyCout move assignment operator called.\n";
+        if (this != &other) {
+            SortingStrategy::operator=(std::move(other));
+        }
+        return *this;
+    }
+
+    void Sort([[maybe_unused]] std::vector<int>& data) override {
+        std::cout << "SortingStrategyCout Sort called.\n";
+        [[maybe_unused]] int x = 1;
+        escape(&x);
+    }
+};
+
 class Context {
     std::unique_ptr<SortingStrategy> strategy;
 
@@ -85,6 +125,28 @@ public:
         default:
             break;
         }
+    }
+};
+
+class ContextCout {
+    std::unique_ptr<SortingStrategy> strategy;
+
+public:
+    explicit ContextCout(std::unique_ptr<SortingStrategy> initial_strategy)
+        : strategy(std::move(initial_strategy)) {
+        std::cout << "ContextCout constructor called.\n";
+    }
+
+    ~ContextCout() { std::cout << "ContextCout destructor called.\n"; }
+
+    void SetStrategy(std::unique_ptr<SortingStrategy> new_strategy) {
+        std::cout << "ContextCout SetStrategy called.\n";
+        strategy = std::move(new_strategy);
+    }
+
+    void SortData(std::vector<int>& data) {
+        std::cout << "ContextCout SortData called.\n";
+        strategy->Sort(data);
     }
 };
 
