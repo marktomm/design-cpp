@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="261px" preserveAspectRatio="none" style="width:611px;height:261px;background:#FFFFFF;" version="1.1" viewBox="0 0 611 261" width="611px" zoomAndPan="magnify"><defs/><g><!--MD5=[a409a9c9417f64321857ebf1cfc65af5]
+cluster prototype--><g id="cluster_prototype"><path d="M8.5,6.602 L79.5,6.602 A3.75,3.75 0 0 1 82,9.102 L89,31.6699 L601.5,31.6699 A2.5,2.5 0 0 1 604,34.1699 L604,252.102 A2.5,2.5 0 0 1 601.5,254.602 L8.5,254.602 A2.5,2.5 0 0 1 6,252.102 L6,9.102 A2.5,2.5 0 0 1 8.5,6.602 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="89" y1="31.6699" y2="31.6699"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="70" x="10" y="23.5679">prototype</text></g><!--MD5=[2bcdee5b381e60683a823732f93b1d9a]
+class prototype.Prototype--><g id="elem_prototype.Prototype"><rect codeLine="4" fill="#F1F1F1" height="67.0679" id="prototype.Prototype" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="252" x="179" y="44.602"/><ellipse cx="269.75" cy="60.602" fill="#A9DCDF" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M264.9219,66.352 L268.2656,54.1645 L271.4063,54.1645 L274.7813,66.352 L272.3125,66.352 L271.5781,63.3364 L268.0625,63.3364 L267.3125,66.352 L264.9219,66.352 Z M269.3281,58.3051 L268.5781,61.3051 L271.0938,61.3051 L270.375,58.3051 Q270.2344,57.727 270.1094,57.1801 Q269.9844,56.6176 269.8438,56.0395 Q269.7344,56.6176 269.5938,57.1801 Q269.4531,57.727 269.3281,58.3051 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="62" x="290.25" y="66.034">Prototype</text><line style="stroke:#181818;stroke-width:0.5;" x1="180" x2="430" y1="76.602" y2="76.602"/><line style="stroke:#181818;stroke-width:0.5;" x1="180" x2="430" y1="84.602" y2="84.602"/><ellipse cx="190" cy="99.6359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="226" x="199" y="103.5679">clone() : std::unique_ptr&lt;Prototype&gt;</text></g><!--MD5=[1d8b6660de883fdc06ba096b390669ff]
+class prototype.ConcretePrototypeA--><g id="elem_prototype.ConcretePrototypeA"><rect codeLine="8" fill="#F1F1F1" height="67.0679" id="prototype.ConcretePrototypeA" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="265" x="22.5" y="171.602"/><ellipse cx="84.25" cy="187.602" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M83.7188,194.5239 Q81.9688,194.5239 80.8281,193.7895 Q79.7031,193.0395 79.1406,191.6957 Q78.5938,190.3364 78.5938,188.5395 Q78.5938,186.5082 79.25,185.0551 Q79.9063,183.602 81.1875,182.8207 Q82.4688,182.0395 84.3438,182.0395 Q85.2344,182.0395 85.9063,182.227 Q86.5781,182.3989 87.2656,182.7426 L86.4531,184.7582 Q85.8281,184.4457 85.2813,184.3207 Q84.75,184.1957 84.2656,184.1957 Q83.0938,184.1957 82.3906,184.727 Q81.6875,185.2582 81.3906,186.2114 Q81.0938,187.1645 81.0938,188.4301 Q81.0938,190.4457 81.8125,191.4145 Q82.5313,192.3676 84.125,192.3676 Q84.7188,192.3676 85.3438,192.2114 Q85.9688,192.0551 86.7969,191.6801 L86.7969,193.8989 Q86.0625,194.2114 85.2656,194.3676 Q84.4844,194.5239 83.7188,194.5239 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="133" x="104.75" y="193.034">ConcretePrototypeA</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="286.5" y1="203.602" y2="203.602"/><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="286.5" y1="211.602" y2="211.602"/><ellipse cx="33.5" cy="226.6359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="239" x="42.5" y="230.5679">clone() : std::unique_ptr&lt;Prototype&gt;</text></g><!--MD5=[84f3681be116c88eb5df2d5935d2615d]
+class prototype.ConcretePrototypeB--><g id="elem_prototype.ConcretePrototypeB"><rect codeLine="12" fill="#F1F1F1" height="67.0679" id="prototype.ConcretePrototypeB" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="265" x="322.5" y="171.602"/><ellipse cx="384.25" cy="187.602" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M383.7188,194.5239 Q381.9688,194.5239 380.8281,193.7895 Q379.7031,193.0395 379.1406,191.6957 Q378.5938,190.3364 378.5938,188.5395 Q378.5938,186.5082 379.25,185.0551 Q379.9063,183.602 381.1875,182.8207 Q382.4688,182.0395 384.3438,182.0395 Q385.2344,182.0395 385.9063,182.227 Q386.5781,182.3989 387.2656,182.7426 L386.4531,184.7582 Q385.8281,184.4457 385.2813,184.3207 Q384.75,184.1957 384.2656,184.1957 Q383.0938,184.1957 382.3906,184.727 Q381.6875,185.2582 381.3906,186.2114 Q381.0938,187.1645 381.0938,188.4301 Q381.0938,190.4457 381.8125,191.4145 Q382.5313,192.3676 384.125,192.3676 Q384.7188,192.3676 385.3438,192.2114 Q385.9688,192.0551 386.7969,191.6801 L386.7969,193.8989 Q386.0625,194.2114 385.2656,194.3676 Q384.4844,194.5239 383.7188,194.5239 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="133" x="404.75" y="193.034">ConcretePrototypeB</text><line style="stroke:#181818;stroke-width:0.5;" x1="323.5" x2="586.5" y1="203.602" y2="203.602"/><line style="stroke:#181818;stroke-width:0.5;" x1="323.5" x2="586.5" y1="211.602" y2="211.602"/><ellipse cx="333.5" cy="226.6359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="239" x="342.5" y="230.5679">clone() : std::unique_ptr&lt;Prototype&gt;</text></g><!--MD5=[6ccc28839946f20a8898c28c68734e8c]
+reverse link prototype.Prototype to prototype.ConcretePrototypeA--><g id="link_prototype.Prototype_prototype.ConcretePrototypeA"><path codeLine="16" d="M249.69,125.192 C231.34,140.482 211.31,157.182 194.41,171.262 " fill="none" id="prototype.Prototype-backto-prototype.ConcretePrototypeA" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="244.74,119.372,264.59,111.942,253.71,130.122,244.74,119.372" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c586803be3ec1940299e679150605b71]
+reverse link prototype.Prototype to prototype.ConcretePrototypeB--><g id="link_prototype.Prototype_prototype.ConcretePrototypeB"><path codeLine="17" d="M360.31,125.192 C378.66,140.482 398.69,157.182 415.59,171.262 " fill="none" id="prototype.Prototype-backto-prototype.ConcretePrototypeB" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="356.29,130.122,345.41,111.942,365.26,119.372,356.29,130.122" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[506d6dc11ce77a1b7afbd985de460972]
+@startuml
+
+namespace prototype {
+
+abstract class Prototype {
+  {abstract} +clone() : std::unique_ptr<Prototype>
+}
+
+class ConcretePrototypeA {
+  +clone() : std::unique_ptr<Prototype>
+}
+
+class ConcretePrototypeB {
+  +clone() : std::unique_ptr<Prototype>
+}
+
+Prototype <|- - ConcretePrototypeA
+Prototype <|- - ConcretePrototypeB
+
+}
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 20:01:30 EEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
