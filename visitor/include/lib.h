@@ -1,7 +1,9 @@
 #ifndef MACRO_visitor_LIB_H
 #define MACRO_visitor_LIB_H
 
+#include <benchmark/benchmark.h>
 #include <cstdint>
+#include <memory>
 
 static void escape(void* p) { asm volatile("" : : "g"(p) : "memory"); }
 
@@ -82,6 +84,7 @@ public:
 
 class CoupledElementTrivialStandard {
 public:
+    std::uintptr_t a{};
     void operation() {
         [[maybe_unused]] int x = 1;
         escape(&x);
@@ -89,7 +92,8 @@ public:
 };
 
 // GEN_PROTO_BEGIN
-
+void fn1(benchmark::State& state, Element* eptr, Visitor* vptr);
+void fn1up(benchmark::State& state, std::unique_ptr<Element>& eptr, std::unique_ptr<Visitor>& vptr);
 // GEN_PROTO_END
 
 }; // namespace visitor
